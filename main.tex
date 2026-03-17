@@ -1,0 +1,52 @@
+% !TEX program = xelatex
+\documentclass[degree=master,fontset=mac]{thuthesis}
+
+\input{setup}
+
+\title{通用研究报告模板}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  {\LARGE 通用研究模板\par}
+  \vspace{1.5cm}
+  {\huge\bfseries 通用研究报告模板\par}
+  \vspace{1.5cm}
+  {\large 作者：Your Name\par}
+  \vspace{0.5cm}
+  {\large 日期：\today\par}
+  \vfill
+  {\large Generic Research Template\par}
+\end{titlepage}
+
+\frontmatter
+\chapter*{摘要}
+论文的摘要是对论文研究内容和成果的高度概括。
+摘要应对论文所研究的问题及其研究目的进行描述，对研究方法和过程进行简单介绍，对研究成果和所得结论进行概括。
+
+\chapter*{Abstract}
+This abstract briefly summarizes the research question, method, and key findings.
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+\input{data/chap01}
+\input{data/chap02}
+\input{data/chap03}
+\input{data/chap04}
+
+\bibliography{ref/refs}
+
+\appendix
+\input{data/appendix}
+
+\backmatter
+\chapter*{致谢}
+感谢所有帮助你完成本研究的人。
+
+\end{document}

@@ -1,0 +1,93 @@
+{
+    "chat.viewSessions.orientation": "stacked",
+    // --- LaTeX Workshop 核心配置 ---
+
+    // 1. 设置编译工具链 (Recipes)
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (xelatex, 推荐)",
+            "tools": [
+                "latexmk_xelatex"
+            ]
+        },
+        {
+            "name": "xelatex -> bibtex -> xelatex*2 (中文推荐)",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+
+    // 2. 定义具体的编译工具参数
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "latexmk_xelatex",
+            "command": "latexmk",
+            "args": [
+                "-xelatex",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        }
+    ],
+
+    // 3. 自动化与清理设置
+    "latex-workshop.latex.build.enableMagicComments": false, // 避免 !TEX program 覆盖 recipe
+    "latex-workshop.latex.build.forceRecipeUsage": true,      // 强制使用 recipe 构建
+    "latex-workshop.latex.recipe.default": "first", // 默认用第一条 recipe（已含 bibtex）
+    "latex-workshop.latex.autoBuild.run": "onSave", // 保存文件时自动编译
+    "latex-workshop.latex.clean.enabled": true,    // 编译失败时清理中间文件
+    "latex-workshop.latex.clean.outputTeXTMP.enabled": true, // 清理临时目录
+    "latex-workshop.view.pdf.viewer": "tab",       // 在 VS Code 标签页中预览 PDF
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click", // 双击 PDF 反向定位到 tex
+    "latex-workshop.synctex.afterBuild.enabled": true, // 编译后支持正向/反向定位
+    "latex-workshop.linting.chktex.enabled": false,  // 未安装 chktex 时关闭该提示
+
+    // 4. BasicTeX 路径配置 (确保能找到编译命令)
+    "latex-workshop.interact.command.PATH": "/Library/TeX/texbin",
+
+    // 5. 拼写检查与智能感知
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.editor.cursor.surround": true
+}

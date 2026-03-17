@@ -1,0 +1,1 @@
+# generic-report-template
